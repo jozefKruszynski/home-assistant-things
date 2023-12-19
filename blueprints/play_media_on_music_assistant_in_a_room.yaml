@@ -10,8 +10,8 @@ blueprint:
      Template Contents:\n
       target:\n
         entity_id: >\n
-          {% set ns = namespace(final_entity = "") %}\n
-          {% for entity in integration_entities('mass') if entity | contains(area | regex_replace("[.]","")|regex_replace("[ ]","_")| lower) %}\n
+          {% set ns = namespace(final_entity = '') %}\n
+          {% for entity in integration_entities('mass') if entity | contains(area | regex_replace('[.]'','')|regex_replace('[ ]'','_')| lower) %}\n
           {% set ns.final_entity = entity %}\n
           {% endfor %}\n
           {{ns.final_entity}}\n
