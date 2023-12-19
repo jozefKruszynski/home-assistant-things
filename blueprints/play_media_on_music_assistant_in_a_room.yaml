@@ -3,6 +3,20 @@ blueprint:
   description:
     "Many Thanks to **JLo** for his original work. The blog post can be found [here](https://blog.jlpouffier.fr/chatgpt-powered-music-search-engine-on-a-local-voice-assistant/)\n
      Without his work, I would not have been able to create this blueprint.\n
+     The template within this blueprint assume that your `mass` integration media_player entities\n
+     are named after the ares they exist in (Example: `media_player.living_room_2` or `media_player.kitchen`)\n
+     If you do not have your media_player entities named this way, you'll need to modify the template\n
+     \n
+     Template Contents:\n
+     ```yaml\n
+      target:\n
+        entity_id: >\n
+          {% set ns = namespace(final_entity = "") %}\n
+          {% for entity in integration_entities('mass') if entity | contains(area | regex_replace("[.]","")|regex_replace("[ ]","_")| lower) %}\n
+          {% set ns.final_entity = entity %}\n
+          {% endfor %}\n
+          {{ns.final_entity}}\n
+     ```\n
      Play any music you want on any Music Assistant speaker\nRequirements:\n
     \ - Media Player coming from the Music Assistant integration\n  - OpenAI Conversation
     **configured with the prompt found [here](https://github.com/jozefKruszynski/home-assistant-things/blob/main/blueprints/modified_prompt.txt)**\n"
