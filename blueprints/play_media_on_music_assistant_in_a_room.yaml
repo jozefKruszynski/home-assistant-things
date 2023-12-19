@@ -8,6 +8,7 @@ blueprint:
      If you do not have your media_player entities named this way, you'll need to modify the template\n
      \n
      Template Contents:\n
+     ```yaml\n
       target:\n
         entity_id: >\n
           {% set ns = namespace(final_entity = '') %}\n
@@ -15,6 +16,7 @@ blueprint:
           {% set ns.final_entity = entity %}\n
           {% endfor %}\n
           {{ns.final_entity}}\n
+     ```\n     
      Play any music you want on any Music Assistant speaker\nRequirements:\n
     \ - Media Player coming from the Music Assistant integration\n  - OpenAI Conversation
     **configured with the prompt found [here](https://github.com/jozefKruszynski/home-assistant-things/blob/main/blueprints/modified_prompt.txt)**\n"
