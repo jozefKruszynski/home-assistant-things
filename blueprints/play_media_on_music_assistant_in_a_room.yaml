@@ -44,7 +44,7 @@ trigger:
     command: !input assist_command
 condition: !input additional_conditions
 variables:
-  area: "{{trigger.slots.area}}"
+  friendly_name: "{{trigger.slots.friendly_name}}"
 action:
   - service: conversation.process
     data:
