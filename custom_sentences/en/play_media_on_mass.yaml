@@ -1,0 +1,10 @@
+language: "en"
+intents:
+  PlayWhateverOnNameEn:
+    data:
+      - sentences:
+          - (Play|Listen) {query} [on] [the] {name}
+
+lists:
+  query:
+    wildcard: true

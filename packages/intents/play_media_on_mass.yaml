@@ -1,0 +1,14 @@
+intent_script:
+  PlayWhateverOnNameEn:
+    action:
+      - service: conversation.process
+        data:
+          agent_id: 99fc4a356ff8e0bd00deccebaea8b09d
+          text: "{{query}}"
+        response_variable: response_from_ai
+      - service: mass.play_media
+        data: "{{response_from_ai.response.speech.plain.speech|from_json}}"
+        target:
+          entity_id: "{{states.media_player|selectattr('entity_id', 'in', integration_entities('mass'))|selectattr('name', 'match', name)|map(attribute='entity_id')|list|first|default }}"
+    speech:
+      text: "Playing now"
