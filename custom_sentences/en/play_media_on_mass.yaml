@@ -3,7 +3,7 @@ intents:
   PlayWhateverOnNameEn:
     data:
       - sentences:
-          - (Play|Listen to) {query} [on] <name>
+          - (Play|Listen to) {query} <in> <name>
 
 lists:
   query:
