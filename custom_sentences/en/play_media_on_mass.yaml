@@ -1,6 +1,6 @@
 language: "en"
 intents:
-  PlayWhateverOnNameEn:
+  MassPlayMediaOnMediaPlayerNameEn:
     data:
       - sentences:
           - (Play|Listen to) {query} <in> <name>
